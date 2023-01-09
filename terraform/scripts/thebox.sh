@@ -27,7 +27,7 @@ ${configure-cronjobs}
 
 # deploy
 
-#$#{deploy-opentelemetry-demo-app}
+${deploy-opentelemetry-demo-app}
 
 echo "######################################"
 echo "# FINISHED!!!"

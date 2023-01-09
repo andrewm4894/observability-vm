@@ -14,3 +14,8 @@ variable "gcp_zone" {
   type    = string
   default = "us-east1-b"
 }
+
+variable "datadog_site" {
+  type    = string
+  default = "datadoghq.com"
+}

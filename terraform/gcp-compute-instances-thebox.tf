@@ -37,11 +37,11 @@ resource "google_compute_instance" "thebox" {
     }),
     install-docker : file("scripts/src/install-docker.sh"),
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
-        netdata-claim-token: var.netdata_claim_token
+      netdata-claim-token : var.netdata_claim_token
     }),
     install-prometheus : file("scripts/src/install-prometheus.sh"),
     install-grafana : templatefile("scripts/src/install-grafana.sh", {
-        grafana-password : var.grafana_password
+      grafana-password : var.grafana_password
     }),
     install-datadog : templatefile("scripts/src/install-datadog.sh", {
       datadog-api-key : var.datadog_api_key,
@@ -66,7 +66,7 @@ resource "google_compute_instance" "thebox" {
       akita-api-key : var.akita_api_key,
       akita-api-secret : var.akita_api_secret,
     }),
-    #deploy-opentelemetry-demo-app : file("scripts/src/deploy-opentelemetry-demo-app.sh"),
+    deploy-opentelemetry-demo-app : file("scripts/src/deploy-opentelemetry-demo-app.sh"),
   })
 }
 #*/
