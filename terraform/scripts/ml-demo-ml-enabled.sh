@@ -10,6 +10,7 @@ ${prepare}
 
 # install
 
+${install-stress-ng}
 ${install-docker}
 ${install-netdata}
 

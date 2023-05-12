@@ -1,11 +1,7 @@
 #!/usr/bin/bash
 
 echo "######################################"
-echo "# prepare.sh..."
+echo "# install-stress-ng.sh"
 echo "######################################" 
 
-mkdir /tmp
-
-sudo apt-get update -y
-
-echo ${dummy-secret}
+sudo apt-get install -y stress-ng
