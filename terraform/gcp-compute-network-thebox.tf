@@ -27,11 +27,11 @@ resource "google_compute_firewall" "thebox_allow" {
     protocol = "tcp"
     ports = [
       "19999", # netdata
-      "8086",  # influxdb
-      "3000",  # grafana     
-      "9090",  # prometheus
-      "9100",  # node_exporter
-      "8080",  # opentelemetry demo app
+      #"8086",  # influxdb
+      #"3000",  # grafana     
+      #"9090",  # prometheus
+      #"9100",  # node_exporter
+      #"8080",  # opentelemetry demo app
       #"5601", # kibana
       #"9600", # logstash
       #"9200", # elasticsearch

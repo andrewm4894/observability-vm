@@ -39,6 +39,7 @@ resource "google_compute_instance" "thebox" {
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
       netdata-claim-token : var.netdata_claim_token
     }),
+    /*
     install-prometheus : file("scripts/src/install-prometheus.sh"),
     install-grafana : templatefile("scripts/src/install-grafana.sh", {
       grafana-password : var.grafana_password
@@ -61,12 +62,15 @@ resource "google_compute_instance" "thebox" {
       influxdb-org : var.influxdb_org,
       influxdb-bucket : var.influxdb_bucket,
     }),
+    */
     configure-cronjobs : file("scripts/src/configure-cronjobs.sh"),
+    /*
     install-akita : templatefile("scripts/src/install-akita.sh", {
       akita-api-key : var.akita_api_key,
       akita-api-secret : var.akita_api_secret,
     }),
     deploy-opentelemetry-demo-app : file("scripts/src/deploy-opentelemetry-demo-app.sh"),
+    */
   })
 }
 #*/
