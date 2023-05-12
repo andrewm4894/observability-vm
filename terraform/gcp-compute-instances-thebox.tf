@@ -1,29 +1,28 @@
 ########################################
 # thebox
 ########################################
-
+/*
 # make a static ip to use for this vm
 resource "google_compute_address" "thebox" {
   name = "thebox"
 }
 
-#/*
 # define the instance
 resource "google_compute_instance" "thebox" {
   name                      = "thebox"
-  machine_type              = "n1-standard-2"
+  machine_type              = "n1-standard-1"
   zone                      = var.gcp_zone
   tags                      = ["dev"]
   allow_stopping_for_update = true
   boot_disk {
     initialize_params {
       image = data.google_compute_image.ubuntu_2004.self_link
-      size  = 100
+      size  = 20
       type  = "pd-standard"
     }
   }
   network_interface {
-    network = google_compute_network.thebox.name
+    network = google_compute_network.mynetwork.name
     access_config {
       nat_ip = google_compute_address.thebox.address
     }
@@ -37,9 +36,9 @@ resource "google_compute_instance" "thebox" {
     }),
     install-docker : file("scripts/src/install-docker.sh"),
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
-      netdata-claim-token : var.netdata_claim_token
+      netdata-claim-token : var.netdata_claim_token,
+      netdata-claim-url : "https://app.netdata.cloud"
     }),
-    /*
     install-prometheus : file("scripts/src/install-prometheus.sh"),
     install-grafana : templatefile("scripts/src/install-grafana.sh", {
       grafana-password : var.grafana_password
@@ -62,15 +61,12 @@ resource "google_compute_instance" "thebox" {
       influxdb-org : var.influxdb_org,
       influxdb-bucket : var.influxdb_bucket,
     }),
-    */
     configure-cronjobs : file("scripts/src/configure-cronjobs.sh"),
-    /*
     install-akita : templatefile("scripts/src/install-akita.sh", {
       akita-api-key : var.akita_api_key,
       akita-api-secret : var.akita_api_secret,
     }),
     deploy-opentelemetry-demo-app : file("scripts/src/deploy-opentelemetry-demo-app.sh"),
-    */
   })
 }
-#*/
+*/

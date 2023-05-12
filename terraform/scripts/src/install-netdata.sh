@@ -9,4 +9,4 @@ sudo wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && \
   --non-interactive \
   --nightly-channel \
   --claim-token ${netdata-claim-token} \
-  --claim-url https://app.netdata.cloud
+  --claim-url ${netdata-claim-url}

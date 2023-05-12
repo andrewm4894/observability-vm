@@ -1,28 +1,28 @@
 ####################
-## thebox
+## mynetwork
 ####################
 
 # make network
-resource "google_compute_network" "thebox" {
-  name = "thebox"
+resource "google_compute_network" "mynetwork" {
+  name = "mynetwork"
 }
 
 # create firewall rules
-resource "google_compute_firewall" "thebox_allow_ssh" {
-  name    = "thebox-allow-ssh"
-  network = google_compute_network.thebox.name
+resource "google_compute_firewall" "mynetwork_allow_ssh" {
+  name    = "mynetwork-allow-ssh"
+  network = google_compute_network.mynetwork.name
   allow {
     protocol = "tcp"
     ports    = ["22"]
   }
   # ip's to whitelist
-  source_ranges = var.thebox_ip_whitelist
+  source_ranges = var.mynetwork_ip_whitelist
 }
 
 # create firewall rules to allow some ports
-resource "google_compute_firewall" "thebox_allow" {
-  name    = "thebox-allow"
-  network = google_compute_network.thebox.name
+resource "google_compute_firewall" "mynetwork_allow" {
+  name    = "mynetwork-allow"
+  network = google_compute_network.mynetwork.name
   allow {
     protocol = "tcp"
     ports = [
@@ -41,5 +41,5 @@ resource "google_compute_firewall" "thebox_allow" {
     ]
   }
   # ip's to whitelist
-  source_ranges = var.thebox_ip_whitelist
+  source_ranges = var.mynetwork_ip_whitelist
 }
