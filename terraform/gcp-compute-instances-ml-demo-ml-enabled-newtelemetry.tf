@@ -1,16 +1,15 @@
 ########################################
-# ml-demo-ml-enabled-24h
+# ml-demo-ml-enabled-newtelemetry
 ########################################
-
+/*
 # make a static ip to use for this vm
-resource "google_compute_address" "ml_demo_ml_enabled_24h" {
-  name = "ml-demo-ml-enabled-24h"
+resource "google_compute_address" "ml_demo_ml_enabled_newtelemetry" {
+  name = "ml-demo-ml-enabled-newtelemetry"
 }
 
-#/*
 # define the instance
-resource "google_compute_instance" "ml_demo_ml_enabled_24h" {
-  name                      = "ml-demo-ml-enabled-24h"
+resource "google_compute_instance" "ml_demo_ml_enabled_newtelemetry" {
+  name                      = "ml-demo-ml-enabled-newtelemetry"
   machine_type              = "n1-standard-1"
   zone                      = var.gcp_zone
   tags                      = ["dev"]
@@ -25,25 +24,25 @@ resource "google_compute_instance" "ml_demo_ml_enabled_24h" {
   network_interface {
     network = google_compute_network.mynetwork.name
     access_config {
-      nat_ip = google_compute_address.ml_demo_ml_enabled_24h.address
+      nat_ip = google_compute_address.ml_demo_ml_enabled_newtelemetry.address
     }
   }
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro", "cloud-platform"]
   }
-  metadata_startup_script = templatefile("scripts/ml-demo-ml-enabled-24h.sh", {
+  metadata_startup_script = templatefile("scripts/ml-demo-ml-enabled-newtelemetry.sh", {
     prepare : templatefile("scripts/src/prepare.sh", {
       dummy-secret : data.google_secret_manager_secret_version.dummy_secret_read.secret_data
     }),
     install-stress-ng : file("scripts/src/install-stress-ng.sh"),
     install-docker : file("scripts/src/install-docker.sh"),
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
-      netdata-fork : "kickstart",
-      netdata-branch : "",
+      netdata-fork : "andrewm4894/netdata",
+      netdata-branch : "update-agent-telemetry-url",
       netdata-claim-token : var.netdata_claim_token,
       netdata-claim-url : "https://app.netdata.cloud"
     }),
     configure-cronjobs : file("scripts/src/configure-cronjobs.sh"),
   })
 }
-#*/
+*/
