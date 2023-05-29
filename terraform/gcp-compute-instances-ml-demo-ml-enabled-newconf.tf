@@ -1,13 +1,12 @@
 ########################################
 # ml-demo-ml-enabled-newconf
 ########################################
-
+/*
 # make a static ip to use for this vm
 resource "google_compute_address" "ml_demo_ml_enabled_newconf" {
   name = "ml-demo-ml-enabled-newconf"
 }
 
-#/*
 # define the instance
 resource "google_compute_instance" "ml_demo_ml_enabled_newconf" {
   name                      = "ml-demo-ml-enabled-newconf"
@@ -46,4 +45,4 @@ resource "google_compute_instance" "ml_demo_ml_enabled_newconf" {
     configure-cronjobs : file("scripts/src/configure-cronjobs.sh"),
   })
 }
-#*/
+*/
