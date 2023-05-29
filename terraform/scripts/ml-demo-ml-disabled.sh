@@ -20,6 +20,8 @@ ${configure-cronjobs}
 
 echo 'creating netdata.conf'
 sudo cat <<EOT > /etc/netdata/netdata.conf
+[cloud]
+    conversation log= yes
 [ml]
     enabled = no
 EOT
