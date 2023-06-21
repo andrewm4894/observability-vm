@@ -1,15 +1,15 @@
 ########################################
-# ml-demo-ml-enabled-24h
+# ml-demo-ml-enabled-48h
 ########################################
-/*
+#/*
 # make a static ip to use for this vm
-resource "google_compute_address" "ml_demo_ml_enabled_24h" {
-  name = "ml-demo-ml-enabled-24h"
+resource "google_compute_address" "ml_demo_ml_enabled_48h" {
+  name = "ml-demo-ml-enabled-48h"
 }
 
 # define the instance
-resource "google_compute_instance" "ml_demo_ml_enabled_24h" {
-  name                      = "ml-demo-ml-enabled-24h"
+resource "google_compute_instance" "ml_demo_ml_enabled_48h" {
+  name                      = "ml-demo-ml-enabled-48h"
   machine_type              = "n1-standard-1"
   zone                      = var.gcp_zone
   tags                      = ["dev"]
@@ -24,13 +24,13 @@ resource "google_compute_instance" "ml_demo_ml_enabled_24h" {
   network_interface {
     network = google_compute_network.mynetwork.name
     access_config {
-      nat_ip = google_compute_address.ml_demo_ml_enabled_24h.address
+      nat_ip = google_compute_address.ml_demo_ml_enabled_48h.address
     }
   }
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro", "cloud-platform"]
   }
-  metadata_startup_script = templatefile("scripts/ml-demo-ml-enabled-24h.sh", {
+  metadata_startup_script = templatefile("scripts/ml-demo-ml-enabled-48h.sh", {
     prepare : templatefile("scripts/src/prepare.sh", {
       dummy-secret : data.google_secret_manager_secret_version.dummy_secret_read.secret_data
     }),
@@ -45,4 +45,4 @@ resource "google_compute_instance" "ml_demo_ml_enabled_24h" {
     configure-cronjobs : file("scripts/src/configure-cronjobs.sh"),
   })
 }
-*/
+#*/

@@ -1,13 +1,12 @@
 ########################################
 # ml-demo-ml-enabled
 ########################################
-
+#/*
 # make a static ip to use for this vm
 resource "google_compute_address" "ml_demo_ml_enabled" {
   name = "ml-demo-ml-enabled"
 }
 
-#/*
 # define the instance
 resource "google_compute_instance" "ml_demo_ml_enabled" {
   name                      = "ml-demo-ml-enabled"

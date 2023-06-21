@@ -21,13 +21,13 @@ ${configure-cronjobs}
 echo 'creating netdata.conf'
 sudo cat <<EOT > /etc/netdata/netdata.conf
 [cloud]
-    conversation log= yes
+    conversation log = no
 [ml]
     enabled = yes
     minimum num samples to train = 900
     maximum num samples to train = 21600
     train every = 10800
-    number of models per dimension = 9
+    number of models per dimension = 17
     enable statistics charts = yes
 EOT
 

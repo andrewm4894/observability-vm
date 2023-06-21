@@ -21,7 +21,7 @@ ${configure-cronjobs}
 echo 'creating netdata.conf'
 sudo cat <<EOT > /etc/netdata/netdata.conf
 [cloud]
-    conversation log= yes
+    conversation log = no
 [ml]
     enabled = yes
     enable statistics charts = yes
