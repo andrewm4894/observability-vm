@@ -76,6 +76,11 @@ variable "netdata_claim_token" {
   default = "your claim token"
 }
 
+variable "netdata_claim_url" {
+  type    = string
+  default = "https://app.netdata.cloud"
+}
+
 variable "akita_api_key" {
   type    = string
   default = "your key"

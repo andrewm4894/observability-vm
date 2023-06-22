@@ -40,7 +40,7 @@ resource "google_compute_instance" "ml_demo_ml_enabled" {
       netdata-fork : "kickstart",
       netdata-branch : "",
       netdata-claim-token : var.netdata_claim_token,
-      netdata-claim-url : "https://app.netdata.cloud"
+      netdata-claim-url : var.netdata_claim_url,
     }),
     configure-cronjobs : file("scripts/src/configure-cronjobs.sh"),
   })
