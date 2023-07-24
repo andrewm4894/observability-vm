@@ -1,7 +1,7 @@
 ########################################
 # ml-demo-ml-enabled
 ########################################
-/*
+#/*
 # make a static ip to use for this vm
 resource "google_compute_address" "ml_demo_ml_enabled" {
   name = "ml-demo-ml-enabled"
@@ -37,12 +37,12 @@ resource "google_compute_instance" "ml_demo_ml_enabled" {
     install-stress-ng : file("scripts/src/install-stress-ng.sh"),
     install-docker : file("scripts/src/install-docker.sh"),
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
-      netdata-fork : "kickstart",
-      netdata-branch : "",
+      netdata-fork : "MrZammler/netdata",
+      netdata-branch : "analytics-machine-id",
       netdata-claim-token : var.netdata_claim_token,
       netdata-claim-url : var.netdata_claim_url,
     }),
     configure-cronjobs : file("scripts/src/configure-cronjobs.sh"),
   })
 }
-*/
+#*/
