@@ -16,8 +16,6 @@ ${install-netdata}
 
 # configure
 
-${configure-cronjobs}
-
 echo 'creating netdata.conf'
 sudo cat <<EOT > /etc/netdata/netdata.conf
 [ml]
