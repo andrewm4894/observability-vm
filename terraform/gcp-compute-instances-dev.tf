@@ -37,10 +37,10 @@ resource "google_compute_instance" "dev" {
     install-stress-ng : file("scripts/src/install-stress-ng.sh"),
     install-docker : file("scripts/src/install-docker.sh"),
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
-      netdata-fork : "kickstart",
-      netdata-branch : "",
-      netdata-claim-token : "",
-      netdata-claim-url : "",
+      netdata-fork : "vkalintiris/netdata",
+      netdata-branch : "mlt",
+      netdata-claim-token : var.netdata_claim_token,
+      netdata-claim-url : var.netdata_claim_url,
     }),
   })
 }
