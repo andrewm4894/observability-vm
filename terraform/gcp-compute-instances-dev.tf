@@ -1,7 +1,7 @@
 ########################################
 # dev
 ########################################
-/*
+#/*
 # make a static ip to use for this vm
 resource "google_compute_address" "dev" {
   name = "dev"
@@ -37,11 +37,11 @@ resource "google_compute_instance" "dev" {
     install-stress-ng : file("scripts/src/install-stress-ng.sh"),
     install-docker : file("scripts/src/install-docker.sh"),
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
-      netdata-fork : "MrZammler/netdata",
-      netdata-branch : "alerts-anomaly-rate",
+      netdata-fork : "netdata/netdata",
+      netdata-branch : "ui_v6.32.0",
       netdata-claim-token : var.netdata_claim_token,
       netdata-claim-url : var.netdata_claim_url,
     }),
   })
 }
-*/
+#*/
