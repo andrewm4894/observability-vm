@@ -25,5 +25,5 @@ EOT
 sudo systemctl restart netdata
 
 echo "######################################"
-echo "# FINISHED!"
+echo "# FINISHED!!!"
 echo "######################################"
