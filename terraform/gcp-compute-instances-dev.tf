@@ -1,7 +1,7 @@
 ########################################
 # dev
 ########################################
-/*
+#/*
 # make a static ip to use for this vm
 resource "google_compute_address" "dev" {
   name = "dev"
@@ -44,4 +44,4 @@ resource "google_compute_instance" "dev" {
     }),
   })
 }
-*/
+#*/
