@@ -5,8 +5,8 @@ echo "# install-netdata-fe.sh"
 echo "######################################" 
 
 # make dirs
-mkdir src
-cd src
+mkdir /src
+cd /src
 
 # clone repos
 gh repo clone netdata/charts -- --branch ${netdata-charts-branch}
