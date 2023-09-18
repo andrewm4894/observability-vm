@@ -95,4 +95,10 @@ variable "grafana_password" {
   type    = string
   default = "your password"
 }
+
+variable "gh_token" {
+  type    = string
+  default = "your token"
+}
+
 */
