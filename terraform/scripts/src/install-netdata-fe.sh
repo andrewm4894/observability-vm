@@ -13,18 +13,16 @@ gh repo clone netdata/charts -- --branch ${netdata-charts-branch}
 gh repo clone netdata/cloud-frontend -- --branch ${netdata-cloud-frontend-branch}
 
 # update repos locally
-cd cloud-frontend
+cd /src/cloud-frontend
 yarn
-cd ..
-cd charts
+cd /src/charts
 yarn && sudo yarn to-cloud
-cd ..
 
 # run script to update ui
-cd cloud-frontend
+cd /src/cloud-frontend
 
 # make agent.sh script 
-cat <<EOT > agent.sh
+cat <<EOT > /src/cloud-frontend/agent.sh
 #!/usr/bin/env bash
 
 #scope="testing"
@@ -87,5 +85,5 @@ cd "$${old}" || exit 1
 #sudo yarn dev-$${scope}
 EOT
 
-chmod +x agent.sh
-sudo ./agent.sh
+chmod +x /src/cloud-frontend/agent.sh
+sudo /src/cloud-frontend/agent.sh
