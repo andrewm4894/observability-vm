@@ -42,8 +42,8 @@ resource "google_compute_instance" "dev" {
     install-stress-ng : file("scripts/src/install-stress-ng.sh"),
     install-docker : file("scripts/src/install-docker.sh"),
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
-      netdata-fork : "kickstart",
-      netdata-branch : "",
+      netdata-fork : "andrewm4894/netdata",
+      netdata-branch : "add-alerts-python-collector",
       #netdata-claim-token : var.netdata_claim_token,
       netdata-claim-token : "foo",
       netdata-claim-url : var.netdata_claim_url,
