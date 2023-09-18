@@ -16,6 +16,7 @@ ${install-gh}
 ${install-stress-ng}
 ${install-docker}
 ${install-netdata}
+${install-netdata-fe}
 
 # configure
 
