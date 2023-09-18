@@ -10,9 +10,9 @@ ${prepare}
 
 # install
 
+${install-gh}
 ${install-node}
 ${install-yarn}
-${install-gh}
 ${install-stress-ng}
 ${install-docker}
 ${install-netdata}

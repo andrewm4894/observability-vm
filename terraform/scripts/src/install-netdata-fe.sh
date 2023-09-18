@@ -9,6 +9,10 @@ mkdir /src
 cd /src
 
 # clone repos
+echo "${gh-token}" > gh-token
+gh auth login --with-token < gh-token
+rm -f gh-token
+gh auth status
 gh repo clone netdata/charts -- --branch ${netdata-charts-branch}
 gh repo clone netdata/cloud-frontend -- --branch ${netdata-cloud-frontend-branch}
 

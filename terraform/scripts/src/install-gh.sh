@@ -12,4 +12,9 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt update \
 && sudo apt install gh -y
 
-gh auth login --with-token < ${gh-token}
+# make token file from env var
+echo "${gh-token}" > gh-token
+gh auth login --with-token < gh-token
+rm -f gh-token
+
+gh auth status

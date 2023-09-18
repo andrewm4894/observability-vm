@@ -50,7 +50,8 @@ resource "google_compute_instance" "dev" {
     }),
     install-netdata-fe : templatefile("scripts/src/install-netdata-fe.sh", {
       netdata-charts-branch : "main",
-      netdata-cloud-frontend-branch : "telemetry-pipeline"
+      netdata-cloud-frontend-branch : "telemetry-pipeline",
+      gh-token : var.gh_token
     }),
   })
 }
