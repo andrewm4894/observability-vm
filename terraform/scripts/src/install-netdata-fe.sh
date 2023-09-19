@@ -29,8 +29,7 @@ cd /src/cloud-frontend
 cat <<EOT > /src/cloud-frontend/agent.sh
 #!/usr/bin/env bash
 
-#scope="testing"
-scope="production"
+scope="${netdata-cloud-frontend-scope}"
 
 # stop on all errors
 set -e
