@@ -10,13 +10,13 @@ ${prepare}
 
 # install
 
-#$#{install-gh}
-#$#{install-node}
-#$#{install-yarn}
-#$#{install-stress-ng}
-#$#{install-docker}
+${install-gh}
+${install-node}
+${install-yarn}
+${install-stress-ng}
+${install-docker}
 ${install-netdata}
-#$#{install-netdata-fe}
+${install-netdata-fe}
 
 # configure
 
