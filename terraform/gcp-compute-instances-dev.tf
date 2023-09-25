@@ -1,7 +1,7 @@
 ########################################
 # dev
 ########################################
-/*
+#/*
 # make a static ip to use for this vm
 resource "google_compute_address" "dev" {
   name = "dev"
@@ -34,25 +34,25 @@ resource "google_compute_instance" "dev" {
     prepare : templatefile("scripts/src/prepare.sh", {
       dummy-secret : data.google_secret_manager_secret_version.dummy_secret_read.secret_data
     }),
-    #install-node : file("scripts/src/install-node.sh"),
-    #install-yarn : file("scripts/src/install-yarn.sh"),
-    #install-gh : templatefile("scripts/src/install-gh.sh", {
-    #    gh-token : var.gh_token
-    #}),
-    #install-stress-ng : file("scripts/src/install-stress-ng.sh"),
-    #install-docker : file("scripts/src/install-docker.sh"),
+    install-node : file("scripts/src/install-node.sh"),
+    install-yarn : file("scripts/src/install-yarn.sh"),
+    install-gh : templatefile("scripts/src/install-gh.sh", {
+        gh-token : var.gh_token
+    }),
+    install-stress-ng : file("scripts/src/install-stress-ng.sh"),
+    install-docker : file("scripts/src/install-docker.sh"),
     install-netdata : templatefile("scripts/src/install-netdata.sh", {
       netdata-fork : "andrewm4894/netdata",
       netdata-branch : "add-alerts-python-collector",
-      netdata-claim-token : var.netdata_claim_token,
-      #netdata-claim-token : "foo",
+      #netdata-claim-token : var.netdata_claim_token,
+      netdata-claim-token : "foo",
       netdata-claim-url : var.netdata_claim_url,
     }),
-    #install-netdata-fe : templatefile("scripts/src/install-netdata-fe.sh", {
-    #  netdata-charts-branch : "main",
-    #  netdata-cloud-frontend-branch : "telemetry-pipeline",
-    #  gh-token : var.gh_token
-    #}),
+    install-netdata-fe : templatefile("scripts/src/install-netdata-fe.sh", {
+      netdata-charts-branch : "main",
+      netdata-cloud-frontend-branch : "telemetry-pipeline",
+      gh-token : var.gh_token
+    }),
   })
 }
-*/
+#*/
